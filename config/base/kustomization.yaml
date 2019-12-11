@@ -1,0 +1,4 @@
+bases:
+  - frontend
+  - redis-master
+  - redis-slave

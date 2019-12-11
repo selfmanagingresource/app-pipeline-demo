@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineRun
+metadata:
+  name: #PIPELINERUN_NAME#
+  namespace: experimental-pipeline
+spec:
+  pipelineRef:
+    name: #PIPELINE_NAME#
+  resources:
+    - name: resource-for-pipeline
+      resourceRef:
+        name: myapp-resource
+

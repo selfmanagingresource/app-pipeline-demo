@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: myapp-resource
+  namespace: experimental-pipeline
+spec:
+  type: image
+  params:
+    - name: url
+      value: gcr.io/yuwenma-gke-playground/k8s-appctl:v5.0.0-betaNoPRReview

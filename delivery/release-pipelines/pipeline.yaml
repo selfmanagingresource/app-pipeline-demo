@@ -1,0 +1,37 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: #PIPELINE_NAME#
+  namespace: experimental-pipeline
+spec:
+  tasks:
+    - name: #ENV#-prep
+      taskRef:
+        name: prepare-#ENV#-1
+      resources:
+        inputs:
+          - name: myapp-image
+            resource: resource-for-pipeline
+      params:
+        - name: version
+          value: #IMG_VERSION#
+    - name: #ENV#-apply
+      taskRef:
+        name: apply-#ENV#-1
+      resources:
+        inputs:
+          - name: myapp-image
+            resource: resource-for-pipeline
+      params:
+        - name: version
+          value: #IMG_VERSION#
+      runAfter:
+        - #ENV#-prep
+    - name: post-#ENV#-check
+      taskRef:
+        name: post-#ENV#-sanity-1
+      runAfter:
+        - #ENV#-apply
+  resources:
+    - name: resource-for-pipeline
+      type: image
