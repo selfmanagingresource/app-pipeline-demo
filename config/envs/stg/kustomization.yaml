@@ -1,0 +1,4 @@
+# Please don't change the namespace field
+namespace: pipeline-app-stg
+bases:
+   - ../../base
