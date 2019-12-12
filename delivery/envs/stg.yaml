@@ -1,4 +1,0 @@
-cluster_name: beta-e2e
-project: yuwenma-gke-playground
-compute:  # choose "region" or "zone"
-   zone: us-central1-a
