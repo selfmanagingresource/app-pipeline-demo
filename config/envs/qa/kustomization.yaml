@@ -1,4 +1,0 @@
-# Please don't change the namespace field
-namespace: pipeline-app-qa
-bases:
-   - ../../base
