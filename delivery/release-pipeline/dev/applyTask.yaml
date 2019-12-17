@@ -12,4 +12,4 @@ spec:
     - name: apply
       image: gcr.io/yuwenma-gke-playground/appctl:v11.0.0-quickstart
       command: ["/bin/bash"]
-      args: ['-c', 'appctl init pipeline-app --app-config-repo github.com/yuwenma/app-pipeline-demo && cd /pipeline-app && gcloud config list && appctl apply dev && kubectl get releasetrack -n pipeline-app-dev']
+      args: ['-c', 'appctl init pipeline-app --app-config-repo github.com/yuwenma/app-pipeline-demo && cd /workspace/pipeline-app && gcloud config list && appctl apply dev && kubectl get releasetrack -n pipeline-app-dev']
