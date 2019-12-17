@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: post-qa-sanity-1
+  namespace: experimental-pipeline
+spec:
+  steps:
+    - name: wait
+      image: ubuntu
+      command:
+      - /bin/bash
+      args:
+      - -c
+      - |
+        sleep 10
+    - name: run-kubectl
+      image: lachlanevenson/k8s-kubectl
+      command: ["kubectl get releasetrack -n pipeline-app-qa"]
+
+      image: lachlanevenson/k8s-kubectl
+      command: ["kubectl"]
+      args:
+        - "get"
+        - "releasetrack"
+        - "-n pipeline-app-qa"
+  steps:
+    - name: check
+      image: gcr.io/yuwenma-gke-playground/appctl:v11.0.0-quickstart
+      command: ["/bin/bash"]
+      args: ['-c', 'echo "Staging release Succeed!!!"']

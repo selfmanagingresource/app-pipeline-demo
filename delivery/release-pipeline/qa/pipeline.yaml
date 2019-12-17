@@ -1,0 +1,31 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: pipeline-qa
+  namespace: experimental-pipeline
+spec:
+  tasks:
+    - name: qa-prep
+      taskRef:
+        name: prepare-qa-1
+      resources:
+        inputs:
+          - name: pipeline-app-image
+            resource: resource-for-pipeline
+    - name: qa-apply
+      taskRef:
+        name: apply-qa-1
+      resources:
+        inputs:
+          - name: pipeline-app-image
+            resource: resource-for-pipeline
+      runAfter:
+        - qa-prep
+    - name: post-qa-check
+      taskRef:
+        name: post-qa-sanity-1
+      runAfter:
+        - qa-apply
+  resources:
+    - name: resource-for-pipeline
+      type: git
