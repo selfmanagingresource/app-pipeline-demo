@@ -1,7 +1,0 @@
-resources:
-- pipeline.yaml
-- pipelinerun.yaml
-- pipelineresource.yaml
-- applyTask.yaml
-- postCheckTask.yaml
-- prepareTask.yaml
