@@ -7,7 +7,7 @@ spec:
   inputs:
     resources:
       - name: pipeline-app-image
-        type: image
+        type: git
   steps:
     - name: prepare
       image: gcr.io/yuwenma-gke-playground/k8s-appctl:v9.0.0-quickstart
