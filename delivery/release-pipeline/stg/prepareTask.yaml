@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: prepare-stg-1
+  namespace: experimental-pipeline
+spec:
+  inputs:
+    resources:
+      - name: pipeline-app-image
+        type: git
+  steps:
+    - name: prepare
+      image: gcr.io/yuwenma-gke-playground/appctl:v11.0.0-quickstart
+      command: ["/bin/bash"]
+      args: ['-c', 'appctl init pipeline-app --app-config-repo github.com/yuwenma/app-pipeline-demo && cd /workspace/pipeline-app && appctl prepare stg']
