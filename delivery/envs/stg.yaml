@@ -1,4 +1,0 @@
-cluster_name: quickstart-stg
-project: yuwenma-gke-playground
-compute:  # choose "region" or "zone"
-   zone: us-central1-a
