@@ -4,4 +4,4 @@ bases:
    - ../../base
 
 commonLabels:
-  sosaComment: myComment
+  sosaComment: myCommentIsBetter
