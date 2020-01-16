@@ -1,0 +1,4 @@
+cluster_name: appdelivery-test-real
+project: sosa-gke-dev
+compute:  # choose "region" or "zone"
+   zone: us-central1-a
